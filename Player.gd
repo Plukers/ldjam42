@@ -54,16 +54,16 @@ func _process(delta):
 	
 	# steering
 	if(_left):
-		if(_steer_angle >= -35 * (PI/180)):
-			_steer_angle -= 0.0005
+		if(_steer_angle >= -40 * (PI/180)):
+			_steer_angle -= 10 * delta
 	if(_right):
-		if(_steer_angle <= 35 * (PI/180)):
-			_steer_angle += 0.0005
+		if(_steer_angle <= 40 * (PI/180)):
+			_steer_angle += 10 * delta
 	if(_down):
 		_down = true
-		_car_speed -= 0.1
+		_car_speed -= 200 * delta
 	if(_up):
 		_up = true
-		_car_speed += 0.1
+		_car_speed += 200 * delta
 	
 	pass
