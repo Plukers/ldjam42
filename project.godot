@@ -14,6 +14,11 @@ config/name="ldjam42"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1408
+window/size/height=896
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
