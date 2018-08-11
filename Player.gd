@@ -9,6 +9,11 @@ var _wheel_base = 50
 var _front_wheel = Vector2()
 var _back_wheel = Vector2()
 
+var _up
+var _down
+var _left
+var _right
+
 func _ready():
 	_car_location = self.position
 	_front_wheel = _car_location + _wheel_base/2 * Vector2(cos(_car_heading), sin(_car_heading))
@@ -20,24 +25,21 @@ func _ready():
 
 func _input(event):
 	if(Input.is_action_pressed("ui_left")):
-		if(_steer_angle >= -35 * (PI/180)):
-			_steer_angle -= 0.1
-			print("wheel_angle: ", _steer_angle)
-
+		_left = true
+	else:
+		_left = false
 	if(Input.is_action_pressed("ui_right")):
-		if(_steer_angle <= 35 * (PI/180)):
-			_steer_angle += 0.1
-			print("wheel_angle: ", _steer_angle)
-
+		_right = true
+	else:
+		_right = false
 	if(Input.is_action_pressed("ui_down")):
-		_car_speed -= 2
-		print("car_speed: " , _car_speed)
-
+		_down = true
+	else:
+		_down = false
 	if(Input.is_action_pressed("ui_up")):
-		_car_speed += 2
-		print("car_speed: " , _car_speed)
-	
-	
+		_up = true
+	else:
+		_up = false
 
 func _process(delta):
 	_front_wheel += _car_speed * delta * Vector2(cos(_car_heading + _steer_angle), sin(_car_heading + _steer_angle))
@@ -49,5 +51,19 @@ func _process(delta):
 	_back_wheel = _car_location - _wheel_base/2 * Vector2(cos(_car_heading), sin(_car_heading))
 	self.position = _car_location
 	self.rotation = _car_heading
-
+	
+	# steering
+	if(_left):
+		if(_steer_angle >= -35 * (PI/180)):
+			_steer_angle -= 0.0005
+	if(_right):
+		if(_steer_angle <= 35 * (PI/180)):
+			_steer_angle += 0.0005
+	if(_down):
+		_down = true
+		_car_speed -= 0.1
+	if(_up):
+		_up = true
+		_car_speed += 0.1
+	
 	pass
