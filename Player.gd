@@ -20,7 +20,6 @@ func _ready():
 	_back_wheel = _car_location - _wheel_base/2 * Vector2(cos(_car_heading), sin(_car_heading))
 	print("car location " , _car_location)
 	print("node position " , self.position)
-	
 
 
 func _input(event):
