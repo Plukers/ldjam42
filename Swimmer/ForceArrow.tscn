@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Swimmer/ForceArrow.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.983936 )
+colors = PoolColorArray( 1, 0.453125, 0.453125, 1, 1, 0, 0, 1 )
+
+[node name="ForceArrow" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+max_force = 200
+
+[node name="Line2D" type="Line2D" parent="." index="0"]
+
+points = PoolVector2Array( 0, 0, 100, 100 )
+width = 5.0
+default_color = Color( 0.757812, 0.0621643, 0.0621643, 1 )
+gradient = SubResource( 1 )
+texture_mode = 655463
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Border", "Capping", "Fill" ]
+
+
