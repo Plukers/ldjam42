@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Track/track.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Track" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Area2D" type="Area2D" parent="Track" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Track/Area2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -89.6238, -5.10665, -0.129089, 47.5829, 89.5593, -4.71923, 0.258339, -57.0213 )
+
+
