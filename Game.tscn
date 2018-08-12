@@ -19,12 +19,14 @@ _data = {
 }
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 Swimmer = ExtResource( 2 )
 
 [node name="Pool" parent="." index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 0, -1.29236 )
 
 [node name="Target" type="Path2D" parent="." index="1"]
 

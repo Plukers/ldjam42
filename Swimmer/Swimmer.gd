@@ -41,7 +41,7 @@ func leave_water():
 
 
 func _on_input_event(viewport, event, shape_idx):
-	if state == State.IN_WATER and event is InputEventMouseButton and event.pressed:
+	if state == State.IN_WATER and threat_level != 2 and event is InputEventMouseButton and event.pressed:
 		force_arrow.visible = true
 		selected = true
 
@@ -67,7 +67,6 @@ func _on_time_out():
 	elif(threat_level == 2):
 		$AnimatedSprite.set_animation("dead")
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
-		threat_level = -1
 
 func _set_state(new_state):
 	match new_state:
