@@ -20,7 +20,7 @@ func _ready():
 	force_arrow.visible = false
 	
 	set_collision_mask_bit(Constants.POOL_WAIT_LAYER, true)
-	set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
+	set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
 	set_collision_mask_bit(Constants.SWIMMER_LAYER, true)
 	
 	set_process(true)

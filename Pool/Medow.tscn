@@ -15,7 +15,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Medow" type="AnimatedSprite" index="0"]
+[node name="Medow" type="AnimatedSprite"]
 
 position = Vector2( -0.410355, -0.321953 )
 frames = SubResource( 1 )

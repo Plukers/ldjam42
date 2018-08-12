@@ -17,6 +17,7 @@ extents = Vector2( 19.389, 11.6697 )
 
 [node name="Swimmer" type="RigidBody2D"]
 
+z_index = 1
 input_pickable = false
 collision_layer = 1024
 collision_mask = 3
@@ -36,12 +37,12 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pause", "Transform" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

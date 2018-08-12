@@ -27,7 +27,7 @@ extents = Vector2( 584.054, 19.0231 )
 custom_solver_bias = 0.0
 extents = Vector2( 15.7847, 358.153 )
 
-[node name="Pool" type="Node" index="0"]
+[node name="Pool" type="Node"]
 
 _sections_unfolded = [ "Collision" ]
 
@@ -90,113 +90,114 @@ editor/display_folded = true
 
 [node name="Flowers" parent="Flowers" index="0" instance=ExtResource( 2 )]
 
-frame = 1
+frame = 2
 
 [node name="Flowers2" parent="Flowers" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 1334.04, 314.673 )
-frame = 1
+frame = 2
 flip_h = true
 
 [node name="Flowers3" parent="Flowers" index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 59.4024, 341.938 )
-frame = 1
+frame = 2
 flip_h = true
 
 [node name="Flowers4" parent="Flowers" index="3" instance=ExtResource( 2 )]
 
 position = Vector2( 1277.23, 39.7519 )
-frame = 1
+frame = 2
 
 [node name="Flowers5" parent="Flowers" index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 68.4907, 771.36 )
-frame = 1
+frame = 2
 flip_h = true
 
 [node name="Flowers6" parent="Flowers" index="5" instance=ExtResource( 2 )]
 
 position = Vector2( 604.7, 846.338 )
-frame = 2
+frame = 0
 flip_h = true
 
 [node name="Flowers7" parent="Flowers" index="6" instance=ExtResource( 2 )]
 
 position = Vector2( 1329.49, 807.713 )
-frame = 2
+frame = 0
 
 [node name="Flowers8" parent="Flowers" index="7" instance=ExtResource( 2 )]
 
 position = Vector2( 311.603, 51.1123 )
-frame = 2
+frame = 0
 
 [node name="Flowers9" parent="Flowers" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( 524.57, 20.4356 )
-frame = 2
+frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers10" parent="Flowers" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( 1329.6, 57.1796 )
-frame = 2
+frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers11" parent="Flowers" index="10" instance=ExtResource( 3 )]
 
 position = Vector2( 920.403, 813.772 )
-frame = 2
+frame = 0
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers12" parent="Flowers" index="11" instance=ExtResource( 3 )]
 
 position = Vector2( 532.921, 830.474 )
-frame = 2
+frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers13" parent="Flowers" index="12" instance=ExtResource( 3 )]
 
 position = Vector2( 83.6417, 439.651 )
-frame = 1
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers14" parent="Flowers" index="13" instance=ExtResource( 3 )]
 
 position = Vector2( 950.467, 40.4778 )
-frame = 1
+frame = 3
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers15" parent="Flowers" index="14" instance=ExtResource( 3 )]
 
 position = Vector2( 1024, 64 )
-frame = 0
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers16" parent="Flowers" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 192, 64 )
+frame = 2
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers17" parent="Flowers" index="16" instance=ExtResource( 4 )]
 
 position = Vector2( 384, 832 )
-frame = 5
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers18" parent="Flowers" index="17" instance=ExtResource( 4 )]
 
 position = Vector2( 1152, 0 )
-frame = 5
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers19" parent="Flowers" index="18" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 448 )
-frame = 5
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="WaitArea" type="Area2D" parent="." index="3"]
@@ -241,6 +242,7 @@ editor/display_folded = true
 [node name="Water" parent="Water" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 704, 448 )
+frame = 0
 
 [node name="Medow" type="Node" parent="." index="5"]
 
@@ -249,152 +251,151 @@ editor/display_folded = true
 [node name="Medow" parent="Medow" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 384, 0 )
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow2" parent="Medow" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 576, 64 )
-frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow23" parent="Medow" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 704, 0 )
-frame = 3
+frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow24" parent="Medow" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 768, 64 )
-frame = 3
+frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow3" parent="Medow" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 896, 0 )
-frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow4" parent="Medow" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 1088, 64 )
-frame = 3
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow5" parent="Medow" index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 64, 256 )
-frame = 2
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow6" parent="Medow" index="7" instance=ExtResource( 6 )]
 
 position = Vector2( 0, 512 )
-frame = 2
+frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow7" parent="Medow" index="8" instance=ExtResource( 6 )]
 
 position = Vector2( 64, 576 )
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow8" parent="Medow" index="9" instance=ExtResource( 6 )]
 
 position = Vector2( 64, 640 )
+frame = 3
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow9" parent="Medow" index="10" instance=ExtResource( 6 )]
 
 position = Vector2( 64, 832 )
-frame = 0
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow10" parent="Medow" index="11" instance=ExtResource( 6 )]
 
 position = Vector2( 256, 896 )
-frame = 3
+frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow11" parent="Medow" index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 448, 832 )
-frame = 3
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow12" parent="Medow" index="13" instance=ExtResource( 6 )]
 
 position = Vector2( 704, 896 )
-frame = 3
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow13" parent="Medow" index="14" instance=ExtResource( 6 )]
 
 position = Vector2( 768, 832 )
-frame = 2
+frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow14" parent="Medow" index="15" instance=ExtResource( 6 )]
 
 position = Vector2( 832, 832 )
-frame = 2
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow15" parent="Medow" index="16" instance=ExtResource( 6 )]
 
 position = Vector2( 1088, 896 )
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow16" parent="Medow" index="17" instance=ExtResource( 6 )]
 
 position = Vector2( 1152, 832 )
-frame = 0
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow17" parent="Medow" index="18" instance=ExtResource( 6 )]
 
 position = Vector2( 1344, 704 )
-frame = 0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow18" parent="Medow" index="19" instance=ExtResource( 6 )]
 
 position = Vector2( 1344, 576 )
-frame = 0
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow19" parent="Medow" index="20" instance=ExtResource( 6 )]
 
 position = Vector2( 1344, 512 )
-frame = 3
+frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow20" parent="Medow" index="21" instance=ExtResource( 6 )]
 
 position = Vector2( 1408, 384 )
-frame = 2
+frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow21" parent="Medow" index="22" instance=ExtResource( 6 )]
 
 position = Vector2( 1408, 192 )
-frame = 2
+frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medow22" parent="Medow" index="23" instance=ExtResource( 6 )]
 
 position = Vector2( 1344, 128 )
+frame = 3
 _sections_unfolded = [ "Transform" ]
 
 
