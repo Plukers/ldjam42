@@ -19,6 +19,7 @@ var initial_force = Vector2()
 func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
 	$Area2D.connect("area_entered", self, "_on_area_entered")
+	$Move.connect("tween_completed", self, "_on_tween_ended");
 	
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
@@ -33,6 +34,7 @@ func leave_water():
 	$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Move.start()
 
+
 func _on_input_event(viewport, event, shape_idx):
 	if state == State.IN_WATER and event is InputEventMouseButton and event.pressed:
 		force_arrow.visible = true
@@ -43,6 +45,10 @@ func _on_area_entered(area):
 		$Move.stop_all()
 		apply_impulse(Vector2(), initial_force)
 		_set_state(State.IN_WATER)
+
+func _on_tween_ended(object, key):
+	print(self, "is freed")
+	self.queue_free()
 
 func _set_state(new_state):
 	match new_state:
