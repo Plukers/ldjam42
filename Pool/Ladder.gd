@@ -16,7 +16,7 @@ func _ready():
 	match sprite_number:
 		TOP_LADDER:
 			$Sprite.set_texture(top_ladder)
-			walking_target = Vector2()
+			walking_target = Vector2(rand_range(0, 0))
 		BOT_LADDER:
 			$Sprite.set_texture(bottom_ladder)
 		LEFT_LADDER:
