@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Pool/Pool_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Pool/Flowers.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pool/Flowers_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Pool/Flowers_3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Pool/Water_1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Pool/Medow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Pool/Ladder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Pool/Medow.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -27,7 +28,7 @@ extents = Vector2( 584.054, 19.0231 )
 custom_solver_bias = 0.0
 extents = Vector2( 15.7847, 358.153 )
 
-[node name="Pool" type="Node"]
+[node name="Pool" type="Node" index="0"]
 
 _sections_unfolded = [ "Collision" ]
 
@@ -50,10 +51,12 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, -65519, 3, 0, -65518, 3, 0, -65517, 3, 0, -65516, 3, 0, -65515, 3, 0, -65514, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 3, 0, 22, 3, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 65547, 3, 0, 65548, 3, 0, 65549, 3, 0, 65550, 3, 0, 65551, 3, 0, 65552, 3, 0, 65553, 3, 0, 65554, 3, 0, 65555, 3, 0, 65556, 3, 0, 65557, 3, 0, 65558, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 131092, 3, 0, 131093, 3, 0, 131094, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 1, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 1, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 327679, 3, 0, 262144, 3, 0, 262145, 3, 0, 262146, 1, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 1, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 1, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 1, 0, 327700, 3, 0, 327701, 3, 0, 327702, 3, 0, 458751, 3, 0, 393216, 3, 0, 393217, 3, 0, 393218, 1, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 1, 0, 393236, 3, 0, 393237, 3, 0, 393238, 3, 0, 524287, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 1, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 1, 0, 458772, 3, 0, 458773, 3, 0, 458774, 3, 0, 589823, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 1, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 1, 0, 524308, 3, 0, 524309, 3, 0, 524310, 3, 0, 655359, 3, 0, 589824, 3, 0, 589825, 3, 0, 589826, 1, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 1, 0, 589844, 3, 0, 589845, 3, 0, 589846, 3, 0, 720895, 3, 0, 655360, 3, 0, 655361, 3, 0, 655362, 1, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 1, 0, 655380, 3, 0, 655381, 3, 0, 655382, 3, 0, 786431, 3, 0, 720896, 3, 0, 720897, 3, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 851967, 3, 0, 786432, 3, 0, 786433, 3, 0, 786434, 3, 0, 786435, 3, 0, 786436, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 3, 0, 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 851988, 3, 0, 851989, 3, 0, 851990, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917522, 3, 0, 917523, 3, 0, 917524, 3, 0, 917525, 3, 0, 917526, 3, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PoolBorder" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 0
@@ -178,26 +181,23 @@ _sections_unfolded = [ "Transform" ]
 [node name="Flowers16" parent="Flowers" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 192, 64 )
-frame = 2
+frame = 4
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers17" parent="Flowers" index="16" instance=ExtResource( 4 )]
 
 position = Vector2( 384, 832 )
-frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers18" parent="Flowers" index="17" instance=ExtResource( 4 )]
 
 position = Vector2( 1152, 0 )
-frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers19" parent="Flowers" index="18" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 448 )
-frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="WaitArea" type="Area2D" parent="." index="3"]
@@ -237,162 +237,165 @@ shape = SubResource( 4 )
 
 [node name="Water" type="Node" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="Water" parent="Water" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 704, 448 )
-frame = 0
+frame = 2
+
+[node name="Ladder" parent="Water/Water" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 31.7759, -255.396 )
+sprite_number = 2
 
 [node name="Medow" type="Node" parent="." index="5"]
 
 editor/display_folded = true
 
-[node name="Medow" parent="Medow" index="0" instance=ExtResource( 6 )]
+[node name="Medow" parent="Medow" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 384, 0 )
 frame = 3
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow2" parent="Medow" index="1" instance=ExtResource( 6 )]
+[node name="Medow2" parent="Medow" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 576, 64 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow23" parent="Medow" index="2" instance=ExtResource( 6 )]
+[node name="Medow23" parent="Medow" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 704, 0 )
 frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow24" parent="Medow" index="3" instance=ExtResource( 6 )]
+[node name="Medow24" parent="Medow" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 768, 64 )
 frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow3" parent="Medow" index="4" instance=ExtResource( 6 )]
+[node name="Medow3" parent="Medow" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 896, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow4" parent="Medow" index="5" instance=ExtResource( 6 )]
+[node name="Medow4" parent="Medow" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 1088, 64 )
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow5" parent="Medow" index="6" instance=ExtResource( 6 )]
+[node name="Medow5" parent="Medow" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 64, 256 )
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow6" parent="Medow" index="7" instance=ExtResource( 6 )]
+[node name="Medow6" parent="Medow" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 0, 512 )
 frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow7" parent="Medow" index="8" instance=ExtResource( 6 )]
+[node name="Medow7" parent="Medow" index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 64, 576 )
 frame = 3
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow8" parent="Medow" index="9" instance=ExtResource( 6 )]
+[node name="Medow8" parent="Medow" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 64, 640 )
 frame = 3
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow9" parent="Medow" index="10" instance=ExtResource( 6 )]
+[node name="Medow9" parent="Medow" index="10" instance=ExtResource( 7 )]
 
 position = Vector2( 64, 832 )
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow10" parent="Medow" index="11" instance=ExtResource( 6 )]
+[node name="Medow10" parent="Medow" index="11" instance=ExtResource( 7 )]
 
 position = Vector2( 256, 896 )
 frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow11" parent="Medow" index="12" instance=ExtResource( 6 )]
+[node name="Medow11" parent="Medow" index="12" instance=ExtResource( 7 )]
 
 position = Vector2( 448, 832 )
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow12" parent="Medow" index="13" instance=ExtResource( 6 )]
+[node name="Medow12" parent="Medow" index="13" instance=ExtResource( 7 )]
 
 position = Vector2( 704, 896 )
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow13" parent="Medow" index="14" instance=ExtResource( 6 )]
+[node name="Medow13" parent="Medow" index="14" instance=ExtResource( 7 )]
 
 position = Vector2( 768, 832 )
 frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow14" parent="Medow" index="15" instance=ExtResource( 6 )]
+[node name="Medow14" parent="Medow" index="15" instance=ExtResource( 7 )]
 
 position = Vector2( 832, 832 )
 frame = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow15" parent="Medow" index="16" instance=ExtResource( 6 )]
+[node name="Medow15" parent="Medow" index="16" instance=ExtResource( 7 )]
 
 position = Vector2( 1088, 896 )
 frame = 3
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow16" parent="Medow" index="17" instance=ExtResource( 6 )]
+[node name="Medow16" parent="Medow" index="17" instance=ExtResource( 7 )]
 
 position = Vector2( 1152, 832 )
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow17" parent="Medow" index="18" instance=ExtResource( 6 )]
+[node name="Medow17" parent="Medow" index="18" instance=ExtResource( 7 )]
 
 position = Vector2( 1344, 704 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow18" parent="Medow" index="19" instance=ExtResource( 6 )]
+[node name="Medow18" parent="Medow" index="19" instance=ExtResource( 7 )]
 
 position = Vector2( 1344, 576 )
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow19" parent="Medow" index="20" instance=ExtResource( 6 )]
+[node name="Medow19" parent="Medow" index="20" instance=ExtResource( 7 )]
 
 position = Vector2( 1344, 512 )
 frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow20" parent="Medow" index="21" instance=ExtResource( 6 )]
+[node name="Medow20" parent="Medow" index="21" instance=ExtResource( 7 )]
 
 position = Vector2( 1408, 384 )
 frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow21" parent="Medow" index="22" instance=ExtResource( 6 )]
+[node name="Medow21" parent="Medow" index="22" instance=ExtResource( 7 )]
 
 position = Vector2( 1408, 192 )
 frame = 1
 flip_v = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Medow22" parent="Medow" index="23" instance=ExtResource( 6 )]
+[node name="Medow22" parent="Medow" index="23" instance=ExtResource( 7 )]
 
 position = Vector2( 1344, 128 )
 frame = 3
