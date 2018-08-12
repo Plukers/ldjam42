@@ -15,13 +15,16 @@ var state = State.GOTO_WATER
 var selected = false
 var walk_target = Vector2()
 var initial_force = Vector2()
+var thread_level = 0
 
 func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
 	$Area2D.connect("area_entered", self, "_on_area_entered")
 	$Move.connect("tween_completed", self, "_on_tween_ended");
+	$Timer.connect("timeout", self, "_on_time_out")
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
+	$Timer.wait_time = randi() % 20 + 10
 	
 	set_process(true)
 
@@ -50,6 +53,14 @@ func _on_tween_ended(object, key):
 	print(self, "is freed")
 	self.queue_free()
 
+func _on_time_out():
+	if(thread_level == 0):
+		$AnimatedSprite.set_animation("help")
+		thread_level += 1
+	elif(thread_level == 1):
+		$AnimatedSprite.set_animation("dead")
+		thread_level = -1
+
 func _set_state(new_state):
 	match new_state:
 		State.GOTO_WATER:
@@ -70,6 +81,8 @@ func _set_state(new_state):
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, true)
+			
+			$Timer.start()
 			
 			state = State.IN_WATER
 			
