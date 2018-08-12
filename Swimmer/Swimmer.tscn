@@ -15,12 +15,12 @@ height = 20.5379
 custom_solver_bias = 0.0
 extents = Vector2( 19.389, 11.6697 )
 
-[node name="Swimmer" type="RigidBody2D"]
+[node name="Swimmer" type="RigidBody2D" index="0"]
 
 z_index = 1
 input_pickable = false
 collision_layer = 1024
-collision_mask = 3
+collision_mask = 0
 mode = 2
 mass = 1.0
 friction = 1.0
@@ -38,6 +38,8 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index" ]
+speed = 5.0
+initial_force_magnitude = 30.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -58,7 +60,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_layer = 524288
+collision_layer = 2048
 collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
@@ -69,5 +71,14 @@ _sections_unfolded = [ "Collision" ]
 shape = SubResource( 2 )
 
 [node name="ForceArrow" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="Move" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 
