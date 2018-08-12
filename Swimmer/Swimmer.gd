@@ -15,7 +15,7 @@ var state = State.GOTO_WATER
 var selected = false
 var walk_target = Vector2()
 var initial_force = Vector2()
-var thread_level = 0
+var threat_level = 0
 
 func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
@@ -30,12 +30,14 @@ func _ready():
 
 func goto_water():
 	_set_state(State.GOTO_WATER)
+	$AnimatedSprite.set_animation("run")
 
 func leave_water():
 	_set_state(State.LEAVE_WATER)
 	$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Move.start()
 	$AnimatedSprite.set_animation("run")
+	
 
 
 func _on_input_event(viewport, event, shape_idx):
@@ -48,18 +50,23 @@ func _on_area_entered(area):
 		$Move.stop_all()
 		apply_impulse(Vector2(), initial_force)
 		_set_state(State.IN_WATER)
+		$AnimatedSprite.set_animation("swim")
 
 func _on_tween_ended(object, key):
 	print(self, "is freed")
 	self.queue_free()
 
 func _on_time_out():
-	if(thread_level == 0):
-		$AnimatedSprite.set_animation("help")
-		thread_level += 1
-	elif(thread_level == 1):
+	if(threat_level == 0):
+		$AnimatedSprite.set_animation("help_1")
+		threat_level += 1
+		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, true)
+	elif(threat_level == 1):
+		$AnimatedSprite.set_animation("help_2")
+		threat_level += 1
+	elif(threat_level == 2):
 		$AnimatedSprite.set_animation("dead")
-		thread_level = -1
+		threat_level = -1
 
 func _set_state(new_state):
 	match new_state:
