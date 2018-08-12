@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Swimmer/Swimmer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pool/Pool.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -19,7 +20,7 @@ _data = {
 }
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 Swimmer = ExtResource( 2 )
@@ -72,5 +73,7 @@ autostart = true
 [node name="Swimmers" type="YSort" parent="." index="4"]
 
 sort_enabled = true
+
+[node name="HUD" parent="." index="5" instance=ExtResource( 4 )]
 
 
