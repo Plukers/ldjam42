@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal saved()
+signal died()
+
 enum State {
 	GOTO_WATER,
 	IN_WATER,
@@ -67,6 +70,7 @@ func _on_time_out():
 	elif(threat_level == 2):
 		$AnimatedSprite.set_animation("dead")
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
+		emit_signal("died")
 
 func _set_state(new_state):
 	match new_state:
@@ -98,6 +102,8 @@ func _set_state(new_state):
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, false)
+			
+			emit_signal("saved")
 			
 			state = State.LEAVE_WATER
 
