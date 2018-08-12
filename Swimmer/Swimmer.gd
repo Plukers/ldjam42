@@ -15,6 +15,9 @@ enum Status {
 	HE_DEAD
 	}
 
+var skull = preload("res://Swimmer/Skull.tscn")
+var happy = preload("res://Swimmer/Happy.tscn")
+
 export var speed = 5.0
 export var initial_force_magnitude = 40.0
 
@@ -25,14 +28,14 @@ var selected = false
 var walk_target = Vector2()
 var initial_force = Vector2()
 var status = Status.HAPPY
-var skull
+
 
 func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
 	$Area2D.connect("area_entered", self, "_on_area_entered")
 	$Move.connect("tween_completed", self, "_on_tween_ended");
 	$Timer.connect("timeout", self, "_on_time_out")
-	skull = preload("res://Swimmer/Skull.tscn")
+
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
 	$Timer.wait_time = randi() % 5 + 2
@@ -48,6 +51,10 @@ func leave_water():
 	$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Move.start()
 	$AnimatedSprite.set_animation("run")
+	var happy_instance = happy.instance()
+	happy_instance.translate(Vector2(0, -40))
+	self.add_child(happy_instance)
+	$Timer.stop()
 	
 
 

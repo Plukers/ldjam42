@@ -6,3 +6,7 @@ const WATER_AREA_LAYER = 1
 const SWIMMER_LAYER = 10
 const SWIMMER_AREA_LAYER = 11
 const SWIMMER_WANTS_OUT = 12
+
+
+const HAPPY_POINT = "+10"
+const SKULL_POINT = "-5"

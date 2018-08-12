@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Swimmer/Totenkopf.png" type="Texture" id=1]
-[ext_resource path="res://Swimmer/Skull.gd" type="Script" id=2]
+[ext_resource path="res://Swimmer/Happy.gd" type="Script" id=1]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -16,12 +15,11 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Skull" type="Sprite"]
+[node name="Happy" type="Sprite" index="0"]
 
 position = Vector2( -0.544063, -3.60105 )
 scale = Vector2( 1.5285, 1.5285 )
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="Tween" type="Tween" parent="." index="0"]
@@ -50,9 +48,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.9375, 0.0439453, 0.0439453, 1 )
+custom_colors/font_color = Color( 0.0439453, 0.9375, 0.120735, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "-5"
+text = "+10"
 align = 1
 valign = 1
 percent_visible = 1.0

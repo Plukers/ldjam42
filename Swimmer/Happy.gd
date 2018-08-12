@@ -8,7 +8,7 @@ func _ready():
 	$Tween.interpolate_property(self, "position", self.position, self.position + Vector2(0, -70), 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.interpolate_property(self, "modulate", self.modulate, self.modulate - Color(0, 0, 0, 1), 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
-	$Label.text = Constants.SKULL_POINT
+	$Label.text = Constants.HAPPY_POINT
 	# $Tween.interpolate_property(self, "modulate", , self.position + Vector2(0, 25), 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	pass
 
