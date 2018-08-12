@@ -1,8 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Swimmer/Swimmer.gd" type="Script" id=1]
-[ext_resource path="res://Assets/tire.png" type="Texture" id=2]
-[ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
+[ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "swim",
+"speed": 2.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -13,7 +25,7 @@ height = 20.5379
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 19.389, 11.6697 )
+extents = Vector2( 19.389, 16.6444 )
 
 [node name="Swimmer" type="RigidBody2D" index="0"]
 
@@ -41,20 +53,26 @@ _sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index" ]
 speed = 5.0
 initial_force_magnitude = 40.0
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+position = Vector2( 1.36489, -17.5761 )
+scale = Vector2( 1.22316, 1.15797 )
+frames = SubResource( 3 )
+animation = "swim"
+frame = 3
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -65,12 +83,16 @@ collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 0.231964, -4.17536 )
 shape = SubResource( 2 )
 
-[node name="ForceArrow" parent="." index="3" instance=ExtResource( 3 )]
+[node name="ForceArrow" parent="." index="3" instance=ExtResource( 6 )]
 
 [node name="Move" type="Tween" parent="." index="4"]
 
