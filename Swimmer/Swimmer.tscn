@@ -27,7 +27,7 @@ height = 20.5379
 custom_solver_bias = 0.0
 extents = Vector2( 19.389, 16.6444 )
 
-[node name="Swimmer" type="RigidBody2D" index="0"]
+[node name="Swimmer" type="RigidBody2D"]
 
 z_index = 1
 input_pickable = false
@@ -59,7 +59,6 @@ position = Vector2( 1.36489, -17.5761 )
 scale = Vector2( 1.22316, 1.15797 )
 frames = SubResource( 3 )
 animation = "swim"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]

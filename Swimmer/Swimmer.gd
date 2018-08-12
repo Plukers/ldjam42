@@ -37,9 +37,6 @@ func _on_input_event(viewport, event, shape_idx):
 		selected = true
 
 func _on_area_entered(area):
-	if(area.get_collision_layer_bit(Constants.ENTER_WATER_LAYER)):
-		pass
-	
 	if(area.get_collision_layer_bit(Constants.WATER_AREA_LAYER)):
 		$Move.stop_all()
 		apply_impulse(Vector2(), initial_force)
@@ -48,7 +45,6 @@ func _on_area_entered(area):
 func _set_state(new_state):
 	match new_state:
 		State.GOTO_WATER:
-			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, true)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, true)
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
@@ -62,7 +58,6 @@ func _set_state(new_state):
 			state = State.GOTO_WATER
 			
 		State.IN_WATER:
-			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, false)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, false)
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
@@ -71,7 +66,6 @@ func _set_state(new_state):
 			state = State.IN_WATER
 			
 		State.LEAVE_WATER:
-			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, false)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, false)
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)

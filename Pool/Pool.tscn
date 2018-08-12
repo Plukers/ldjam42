@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Pool/Pool_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Pool/Flowers.tscn" type="PackedScene" id=2]
@@ -22,12 +22,7 @@ extents = Vector2( 512.024, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 496, 240 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 512, 256 )
-
-[node name="Pool" type="Node2D"]
+[node name="Pool" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Collision" ]
 
@@ -142,26 +137,25 @@ _sections_unfolded = [ "Transform" ]
 [node name="Flowers16" parent="Art/Flowers" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 192, 64 )
-frame = 5
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers17" parent="Art/Flowers" index="16" instance=ExtResource( 4 )]
 
 position = Vector2( 384, 832 )
-frame = 4
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers18" parent="Art/Flowers" index="17" instance=ExtResource( 4 )]
 
 position = Vector2( 1152, 0 )
-frame = 4
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers19" parent="Art/Flowers" index="18" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 448 )
-frame = 4
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Water" type="Node2D" parent="Art" index="2"]
@@ -171,7 +165,6 @@ editor/display_folded = true
 [node name="Water" parent="Art/Water" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 704, 448 )
-frame = 0
 
 [node name="Meadow" type="Node2D" parent="Art" index="3"]
 
@@ -381,26 +374,5 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 704, 448 )
 shape = SubResource( 4 )
-
-[node name="EnterWaterArea" type="Area2D" parent="." index="3"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterWaterArea" index="0"]
-
-position = Vector2( 704, 448 )
-shape = SubResource( 3 )
 
 
