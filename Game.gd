@@ -33,5 +33,5 @@ func _on_spawn_timer_timeout():
 	swimmer.goto_water()
 	
 	# reset timer
-	spawn_timer.wait_time = randi()%15
-	spawn_timer.start()
+	# spawn_timer.wait_time = randi()%15
+	# spawn_timer.start()

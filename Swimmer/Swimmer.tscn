@@ -39,7 +39,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index" ]
 speed = 5.0
-initial_force_magnitude = 30.0
+initial_force_magnitude = 40.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
