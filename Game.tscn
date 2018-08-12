@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Swimmer/Swimmer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pool/Pool.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 270, 270, 0, 0, 0, 0, 1140, 270, 0, 0, 0, 0, 1140, 620, 0, 0, 0, 0, 270, 620, 0, 0, 0, 0, 270, 270 )
+}
+
+[sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
 _data = {
@@ -19,12 +26,28 @@ Swimmer = ExtResource( 2 )
 
 [node name="Pool" parent="." index="0" instance=ExtResource( 3 )]
 
-[node name="Spawn" type="Path2D" parent="." index="1"]
+[node name="Target" type="Path2D" parent="." index="1"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+
+[node name="TargetLocation" type="PathFollow2D" parent="Target" index="0"]
+
+position = Vector2( 270, 270 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Spawn" type="Path2D" parent="." index="2"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 position = Vector2( -10, 0 )
 scale = Vector2( 1.00625, 1 )
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="SpawnLocation" type="PathFollow2D" parent="Spawn" index="0"]
 
@@ -37,11 +60,15 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="SpawnTimer" type="Timer" parent="." index="2"]
+[node name="SpawnTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = false
 autostart = true
+
+[node name="Swimmers" type="YSort" parent="." index="4"]
+
+sort_enabled = true
 
 

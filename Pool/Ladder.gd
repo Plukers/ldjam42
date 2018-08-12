@@ -6,20 +6,31 @@ var top_ladder = preload("res://Assets/Pool/ladder_top.png")
 var bottom_ladder = preload("res://Assets/Pool/ladder_bottom.png")
 var left_ladder = preload("res://Assets/Pool/ladder_top.png")
 var right_ladder = preload("res://Assets/Pool/ladder_bottom.png")
+const TOP_LADDER = 1
+const BOT_LADDER = 2
+const LEFT_LADDER = 3
+const RIGHT_LADDER = 4
+
+var walking_target = Vector2()
 func _ready():
 	match sprite_number:
-		1:
+		TOP_LADDER:
 			$Sprite.set_texture(top_ladder)
-		2:
+			walking_target = Vector2()
+		BOT_LADDER:
 			$Sprite.set_texture(bottom_ladder)
-		3:
+		LEFT_LADDER:
 			$Sprite.set_texture(left_ladder)
-		4:
+		RIGHT_LADDER:
 			$Sprite.set_texture(right_ladder)
-	
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _on_body_entered(body):
+	body.walking_target 
+	body.leave_water()
+
+
+func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
+	pass

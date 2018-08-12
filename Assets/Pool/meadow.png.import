@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medow.png-cca5c131bf5910a4b71089ba5692e859.stex"
+path="res://.import/meadow.png-e084ede24a85e9dc91a945a9a7238b6b.stex"
 
 [deps]
 
-source_file="res://Assets/Pool/medow.png"
-dest_files=[ "res://.import/medow.png-cca5c131bf5910a4b71089ba5692e859.stex" ]
+source_file="res://Assets/Pool/meadow.png"
+dest_files=[ "res://.import/meadow.png-e084ede24a85e9dc91a945a9a7238b6b.stex" ]
 
 [params]
 
