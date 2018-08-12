@@ -30,6 +30,8 @@ func goto_water():
 
 func leave_water():
 	_set_state(State.LEAVE_WATER)
+	$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Move.start()
 
 func _on_input_event(viewport, event, shape_idx):
 	if state == State.IN_WATER and event is InputEventMouseButton and event.pressed:
