@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
 [ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -16,16 +16,16 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 12.5376
-height = 20.5379
+radius = 16.672
+height = 39.2411
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 19.389, 16.6444 )
+extents = Vector2( 22.1134, 25.4496 )
 
 [node name="Swimmer" type="RigidBody2D"]
 
@@ -55,16 +55,18 @@ initial_force_magnitude = 40.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 1.36489, -17.5761 )
-scale = Vector2( 1.22316, 1.15797 )
-frames = SubResource( 3 )
+position = Vector2( 2.83633, -23.6391 )
+scale = Vector2( 1.85669, 1.74025 )
+frames = SubResource( 1 )
 animation = "swim"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 0.19371, 3.29309 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -82,14 +84,11 @@ collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 0.231964, -4.17536 )
-shape = SubResource( 2 )
+position = Vector2( 1.20053, -4.75649 )
+shape = SubResource( 3 )
 
 [node name="ForceArrow" parent="." index="3" instance=ExtResource( 6 )]
 
