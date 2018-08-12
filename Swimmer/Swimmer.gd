@@ -80,6 +80,7 @@ func _on_time_out():
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
 		status += 1
 		var skull_instance = skull.instance()
+		skull_instance.translate(Vector2(0, -40))
 		self.add_child(skull_instance)
 		emit_signal("died")
 
