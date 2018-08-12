@@ -5,6 +5,12 @@ enum State {
 	IN_WATER,
 	LEAVE_WATER
 }
+enum Status {
+	HAPPY,
+	WANTS_OUT,
+	REALLY_WANTS_OUT,
+	HE_DEAD
+	}
 
 export var speed = 5.0
 export var initial_force_magnitude = 40.0
@@ -15,16 +21,18 @@ var state = State.GOTO_WATER
 var selected = false
 var walk_target = Vector2()
 var initial_force = Vector2()
-var threat_level = 0
+var status = Status.HAPPY
+var skull
 
 func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
 	$Area2D.connect("area_entered", self, "_on_area_entered")
 	$Move.connect("tween_completed", self, "_on_tween_ended");
 	$Timer.connect("timeout", self, "_on_time_out")
+	skull = preload("res://Swimmer/Skull.tscn")
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
-	$Timer.wait_time = randi() % 20 + 10
+	$Timer.wait_time = randi() % 5 + 2
 	
 	set_process(true)
 
@@ -41,7 +49,7 @@ func leave_water():
 
 
 func _on_input_event(viewport, event, shape_idx):
-	if state == State.IN_WATER and threat_level != 2 and event is InputEventMouseButton and event.pressed:
+	if state == State.IN_WATER and status != Status.HE_DEAD and event is InputEventMouseButton and event.pressed:
 		force_arrow.visible = true
 		selected = true
 
@@ -57,16 +65,19 @@ func _on_tween_ended(object, key):
 	self.queue_free()
 
 func _on_time_out():
-	if(threat_level == 0):
+	if(status == Status.HAPPY):
 		$AnimatedSprite.set_animation("help_1")
-		threat_level += 1
+		status += 1
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, true)
-	elif(threat_level == 1):
+	elif(status == Status.WANTS_OUT):
 		$AnimatedSprite.set_animation("help_2")
-		threat_level += 1
-	elif(threat_level == 2):
+		status += 1
+	elif(status == Status.REALLY_WANTS_OUT):
 		$AnimatedSprite.set_animation("dead")
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
+		status += 1
+		var skull_instance = skull.instance()
+		self.add_child(skull_instance)
 
 func _set_state(new_state):
 	match new_state:

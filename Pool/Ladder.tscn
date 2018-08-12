@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 24, 24 )
 
-[node name="Ladder" type="Node2D" index="0"]
+[node name="Ladder" type="Node2D"]
 
 script = ExtResource( 1 )
 sprite_number = 0
