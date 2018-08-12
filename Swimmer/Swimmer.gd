@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal saved()
+signal died()
+
 enum State {
 	GOTO_WATER,
 	IN_WATER,
@@ -78,6 +81,7 @@ func _on_time_out():
 		status += 1
 		var skull_instance = skull.instance()
 		self.add_child(skull_instance)
+		emit_signal("died")
 
 func _set_state(new_state):
 	match new_state:
@@ -109,6 +113,8 @@ func _set_state(new_state):
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, false)
+			
+			emit_signal("saved")
 			
 			state = State.LEAVE_WATER
 
