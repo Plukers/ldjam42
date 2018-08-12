@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-3cbd233be7939cc28c52ccd2e48e6f3d.stex"
+path="res://.import/ladder_right.png-af0d36b605afb623257ae4e173c13c6a.stex"
 
 [deps]
 
-source_file="res://Assets/Pool/water.png"
-dest_files=[ "res://.import/water.png-3cbd233be7939cc28c52ccd2e48e6f3d.stex" ]
+source_file="res://Assets/Pool/ladder_right.png"
+dest_files=[ "res://.import/ladder_right.png-af0d36b605afb623257ae4e173c13c6a.stex" ]
 
 [params]
 

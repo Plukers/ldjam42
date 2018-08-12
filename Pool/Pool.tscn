@@ -141,26 +141,25 @@ _sections_unfolded = [ "Transform" ]
 [node name="Flowers16" parent="Art/Flowers" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 192, 64 )
-frame = 1
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers17" parent="Art/Flowers" index="16" instance=ExtResource( 4 )]
 
 position = Vector2( 384, 832 )
-frame = 0
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers18" parent="Art/Flowers" index="17" instance=ExtResource( 4 )]
 
 position = Vector2( 1152, 0 )
-frame = 0
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Flowers19" parent="Art/Flowers" index="18" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 448 )
-frame = 0
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Water" type="Node2D" parent="Art" index="2"]
@@ -170,7 +169,6 @@ editor/display_folded = true
 [node name="Water" parent="Art/Water" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 704, 448 )
-frame = 2
 
 [node name="Meadow" type="Node2D" parent="Art" index="3"]
 
@@ -373,23 +371,25 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 704, 440.05 )
 shape = SubResource( 3 )
 
-[node name="Ladder1" parent="." index="3" instance=ExtResource( 7 )]
+[node name="Ladder_top" parent="." index="3" instance=ExtResource( 7 )]
 
-position = Vector2( 734.879, 190.401 )
+position = Vector2( 737.323, 179.812 )
 
-[node name="Ladder2" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Ladder_right" parent="." index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 1209.21, 435.917 )
+position = Vector2( 1218.91, 446.389 )
+rotation = 0.439153
 sprite_number = 3
 
-[node name="Ladder3" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Ladder_bot" parent="." index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 738.22, 699.805 )
+position = Vector2( 726.666, 708.073 )
 sprite_number = 1
 
-[node name="Ladder4" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Ladder_left" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 200.422, 452.619 )
+position = Vector2( 189.654, 428.486 )
+rotation = -0.333385
 sprite_number = 2
 
 

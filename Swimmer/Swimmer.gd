@@ -66,6 +66,7 @@ func _on_time_out():
 		threat_level += 1
 	elif(threat_level == 2):
 		$AnimatedSprite.set_animation("dead")
+		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
 		threat_level = -1
 
 func _set_state(new_state):

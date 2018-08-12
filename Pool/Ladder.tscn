@@ -8,13 +8,15 @@
 custom_solver_bias = 0.0
 extents = Vector2( 24, 24 )
 
-[node name="Ladder" type="Node2D"]
+[node name="Ladder" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 sprite_number = 0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 8.10203, 16.1356 )
+scale = Vector2( 1.25319, 1.50424 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
@@ -32,6 +34,8 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 0.967106, 17.0598 )
+scale = Vector2( 1.03582, 1.63185 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
