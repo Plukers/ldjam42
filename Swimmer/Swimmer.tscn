@@ -1,11 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Swimmer/Swimmer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
-[ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=17]
+[ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -13,6 +25,21 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "swim",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "help",
 "speed": 2.0
 } ]
 
@@ -59,7 +86,7 @@ position = Vector2( 2.83633, -23.6391 )
 scale = Vector2( 1.85669, 1.74025 )
 frames = SubResource( 1 )
 animation = "swim"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -90,7 +117,7 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 1.20053, -4.75649 )
 shape = SubResource( 3 )
 
-[node name="ForceArrow" parent="." index="3" instance=ExtResource( 6 )]
+[node name="ForceArrow" parent="." index="3" instance=ExtResource( 18 )]
 
 [node name="Move" type="Tween" parent="." index="4"]
 

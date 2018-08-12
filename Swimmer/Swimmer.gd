@@ -20,7 +20,6 @@ func _ready():
 	$Area2D.connect("input_event", self, "_on_input_event")
 	$Area2D.connect("area_entered", self, "_on_area_entered")
 	$Move.connect("tween_completed", self, "_on_tween_ended");
-	
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
 	
@@ -33,6 +32,7 @@ func leave_water():
 	_set_state(State.LEAVE_WATER)
 	$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Move.start()
+	$AnimatedSprite.set_animation("run")
 
 
 func _on_input_event(viewport, event, shape_idx):
