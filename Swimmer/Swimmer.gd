@@ -7,10 +7,10 @@ enum State {
 }
 
 export var speed = 5.0
-export var initial_force_magnitude = 30.0
+export var initial_force_magnitude = 40.0
 
 var force_arrow
-var state
+var state = State.GOTO_WATER
 
 var selected = false
 var walk_target = Vector2()
@@ -32,20 +32,21 @@ func leave_water():
 	_set_state(State.LEAVE_WATER)
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
+	if state == State.IN_WATER and event is InputEventMouseButton and event.pressed:
 		force_arrow.visible = true
 		selected = true
 
 func _on_area_entered(area):
 	if(area.get_collision_layer_bit(Constants.ENTER_WATER_LAYER)):
-		$Move.stop_all()
-		apply_impulse(Vector2(), initial_force)
+		pass
 	
 	if(area.get_collision_layer_bit(Constants.WATER_AREA_LAYER)):
+		$Move.stop_all()
+		apply_impulse(Vector2(), initial_force)
 		_set_state(State.IN_WATER)
 
-func _set_state(state):
-	match state:
+func _set_state(new_state):
+	match new_state:
 		State.GOTO_WATER:
 			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, true)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, true)
@@ -58,6 +59,8 @@ func _set_state(state):
 			$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Move.start()
 			
+			state = State.GOTO_WATER
+			
 		State.IN_WATER:
 			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, false)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, false)
@@ -65,21 +68,23 @@ func _set_state(state):
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, true)
 			
+			state = State.IN_WATER
+			
 		State.LEAVE_WATER:
 			$Area2D.set_collision_mask_bit(Constants.ENTER_WATER_LAYER, false)
 			$Area2D.set_collision_mask_bit(Constants.WATER_AREA_LAYER, false)
 			
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, false)
+			
+			state = State.LEAVE_WATER
 
 func _process(delta):
-	
 	if state == State.IN_WATER and selected:
 		if Input.is_action_pressed("select"):
 			force_arrow.set_end_pos(get_viewport().get_mouse_position() - self.position)
 		else:
 			force_arrow.visible = false
 			selected = false
-			print("Force: ", force_arrow.get_force_vector())
 			apply_impulse(Vector2(0, 0),  force_arrow.get_force_vector())
 
