@@ -28,8 +28,7 @@ curve = SubResource( 1 )
 
 [node name="SpawnLocation" type="PathFollow2D" parent="Spawn" index="0"]
 
-position = Vector2( -70.0621, -70 )
-rotation = 0.00628632
+position = Vector2( -59.6273, -70 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
