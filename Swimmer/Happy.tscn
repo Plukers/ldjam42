@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Swimmer/Happy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Swimmer/happy.png" type="Texture" id=1]
+[ext_resource path="res://Swimmer/Happy.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -17,9 +18,11 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Happy" type="Sprite" index="0"]
 
-position = Vector2( -0.544063, -3.60105 )
+position = Vector2( -30.4727, -48.4941 )
 scale = Vector2( 1.5285, 1.5285 )
-script = ExtResource( 1 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="Tween" type="Tween" parent="." index="0"]
@@ -37,10 +40,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = -30.0
-margin_right = 20.0
-margin_bottom = -7.0
+margin_left = 9.0
+margin_top = -20.0
+margin_right = 49.0
+margin_bottom = 3.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
