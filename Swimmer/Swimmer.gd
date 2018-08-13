@@ -122,6 +122,8 @@ func _set_state(new_state):
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, false)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, false)
 			
+			force_arrow.visible = false
+			
 			emit_signal("saved")
 			
 			state = State.LEAVE_WATER
