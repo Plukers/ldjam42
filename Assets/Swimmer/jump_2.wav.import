@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump_2.wav-95ea1703a6279a68cd04abd171834c43.sample"
+
+[deps]
+
+source_file="res://Assets/Swimmer/jump_2.wav"
+dest_files=[ "res://.import/jump_2.wav-95ea1703a6279a68cd04abd171834c43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

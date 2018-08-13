@@ -1,23 +1,24 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Swimmer/Swimmer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=17]
 [ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Assets/Swimmer/save_0.wav" type="AudioStream" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -29,13 +30,13 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "run",
-"speed": 4.0
+"name": "dead",
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "dead",
-"speed": 2.0
+"name": "run",
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
@@ -59,7 +60,7 @@ height = 39.2411
 custom_solver_bias = 0.0
 extents = Vector2( 22.1134, 29.6835 )
 
-[node name="Swimmer" type="RigidBody2D"]
+[node name="Swimmer" type="RigidBody2D" index="0"]
 
 z_index = 1
 input_pickable = false
@@ -91,6 +92,7 @@ position = Vector2( 2.83633, -23.8711 )
 scale = Vector2( 1.85669, 1.74025 )
 frames = SubResource( 1 )
 animation = "swim"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -140,5 +142,18 @@ process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = false
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="body_entered" from="." to="." method="_on_Swimmer_body_entered"]
 
 
