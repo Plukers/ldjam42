@@ -16,6 +16,6 @@ The longer the line, the more force is applied.
 
 Swimmers who don't wave or dead swimmers won't leave the pool. 
 
-You have lost as soon as the *death meter* is full. 
+You have lost as soon as the *death bar* is full. 
 
 *Our repo for the Ludum Dare 42 - Running out of space*
