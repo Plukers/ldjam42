@@ -1,5 +1,7 @@
 extends Control
 
+signal lost()
+
 var happy = -2
 var dieded = 10
 
@@ -10,6 +12,8 @@ func _ready():
 
 func increment():
 	$HBoxContainer/TextureProgress.value += dieded
+	if($HBoxContainer/TextureProgress.value >= 100):
+		emit_signal("lost")
 
 func decrement():
 	$HBoxContainer/TextureProgress.value += happy

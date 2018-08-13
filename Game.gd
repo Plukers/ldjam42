@@ -25,6 +25,7 @@ func _ready():
 	spawn_timer = $SpawnTimer
 	spawn_timer.connect("timeout", self, "_on_spawn_timer_timeout")
 	spawn_timer.start()
+	$HUD/Progressbar.connect("lost", self, "_on_lost")
 
 func _on_spawn_timer_timeout():
 	
@@ -46,6 +47,10 @@ func _on_spawn_timer_timeout():
 	spawn_timer.wait_time = randi()%int(next_interval)
 	spawn_timer.start()
 	max_spawn_interval *= decrease
+
+func _on_lost():
+	print("you lost!!")
+	get_tree().change_scene("res://SplashScreen/Splash.tscn")
 
 func _swimmer_saved():
 	score += 10
