@@ -49,8 +49,7 @@ func _on_spawn_timer_timeout():
 	max_spawn_interval *= decrease
 
 func _on_lost():
-	print("you lost!!")
-	get_tree().change_scene("res://SplashScreen/Splash.tscn")
+	get_tree().change_scene("res://ScoreScreen/Score.tscn")
 
 func _swimmer_saved():
 	Score.score += 10
