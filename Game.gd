@@ -50,10 +50,12 @@ func _on_spawn_timer_timeout():
 func _swimmer_saved():
 	score += 10
 	$HUD.update_score(score)
+	$HUD/Progressbar.decrement()
 
 
 func _swimmer_died():
 	score -= 5
 	score = max(0, score)
 	$HUD.update_score(score)
+	$HUD/Progressbar.increment()
 
