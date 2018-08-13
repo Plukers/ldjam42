@@ -18,4 +18,4 @@ Swimmers who don't wave or dead swimmers won't leave the pool.
 
 You have lost as soon as the *death bar* is full. 
 
-*Our repo for the Ludum Dare 42 - Running out of space*
+*Our repo for the Ludum Dare 42 - Running out of space - Made with Godot*
