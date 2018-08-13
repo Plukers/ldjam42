@@ -1,6 +1,7 @@
 extends Node2D
 
 export var max_force = 200
+export var force_scale = 3.0
 
 var line
 
@@ -16,4 +17,4 @@ func set_end_pos(pos):
 		line.set_point_position(1, pos)
 
 func get_force_vector():
-	return line.get_point_position(0) - line.get_point_position(1)  
+	return force_scale * (line.get_point_position(0) - line.get_point_position(1))

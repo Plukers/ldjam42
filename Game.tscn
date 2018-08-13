@@ -20,10 +20,13 @@ _data = {
 }
 _sections_unfolded = [ "Resource" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 Swimmer = ExtResource( 2 )
+max_spawn_interval = 8
+bound_interval = 3.0
+decrease = 0.95
 
 [node name="Pool" parent="." index="0" instance=ExtResource( 3 )]
 
@@ -67,7 +70,7 @@ lookahead = 4.0
 
 process_mode = 1
 wait_time = 5.0
-one_shot = false
+one_shot = true
 autostart = true
 
 [node name="Swimmers" type="YSort" parent="." index="4"]

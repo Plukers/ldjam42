@@ -8,6 +8,9 @@ var target_location
 var swimmer_collection
 
 var spawn_timer
+export var max_spawn_interval = 10
+export var bound_interval = 1.5
+export var decrease = 0.95
 
 var score = 0
 
@@ -16,6 +19,8 @@ func _ready():
 	target_location = $Target/TargetLocation
 	
 	swimmer_collection = $Swimmers
+	
+	randomize()
 	
 	spawn_timer = $SpawnTimer
 	spawn_timer.connect("timeout", self, "_on_spawn_timer_timeout")
@@ -37,8 +42,10 @@ func _on_spawn_timer_timeout():
 	swimmer.goto_water()
 	
 	# reset timer
-	# spawn_timer.wait_time = randi()%15
-	# spawn_timer.start()
+	var next_interval = max(bound_interval, max_spawn_interval)
+	spawn_timer.wait_time = randi()%int(next_interval)
+	spawn_timer.start()
+	max_spawn_interval *= decrease
 
 func _swimmer_saved():
 	score += 10

@@ -38,7 +38,6 @@ func _ready():
 
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
-	$Timer.wait_time = randi() % 5 + 2
 	
 	set_process(true)
 
@@ -79,9 +78,15 @@ func _on_time_out():
 		$AnimatedSprite.set_animation("help_1")
 		status += 1
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, true)
+		
+		$Timer.wait_time = randi() % 7 + 2
+		$Timer.start()
 	elif(status == Status.WANTS_OUT):
 		$AnimatedSprite.set_animation("help_2")
 		status += 1
+		
+		$Timer.wait_time = randi() % 7 + 2
+		$Timer.start()
 	elif(status == Status.REALLY_WANTS_OUT):
 		$AnimatedSprite.set_animation("dead")
 		self.set_collision_layer_bit(Constants.SWIMMER_WANTS_OUT, false)
@@ -112,6 +117,8 @@ func _set_state(new_state):
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, true)
 			
+			
+			$Timer.wait_time = randi() % 15 + 2
 			$Timer.start()
 			
 			state = State.IN_WATER
