@@ -12,9 +12,9 @@ export var max_spawn_interval = 10
 export var bound_interval = 1.5
 export var decrease = 0.95
 
-var score = 0
-
 func _ready():
+	Score.score = 0
+	
 	spawn_location = $Spawn/SpawnLocation
 	target_location = $Target/TargetLocation
 	
@@ -48,12 +48,12 @@ func _on_spawn_timer_timeout():
 	max_spawn_interval *= decrease
 
 func _swimmer_saved():
-	score += 10
-	$HUD.update_score(score)
+	Score.score += 10
+	$HUD.update_score()
 
 
 func _swimmer_died():
-	score -= 5
-	score = max(0, score)
-	$HUD.update_score(score)
+	Score.score -= 5
+	Score.score = max(0, Score.score)
+	$HUD.update_score()
 
