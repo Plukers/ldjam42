@@ -2,8 +2,8 @@ extends Control
 
 signal lost()
 
-var happy = -2
-var dieded = 10
+var happy = Constants.HAPPY_BAR
+var dieded = Constants.SKULL_BAR
 
 func _ready():
 	# Called when the node is added to the scene for the first time.

@@ -10,3 +10,6 @@ const SWIMMER_WANTS_OUT = 12
 
 const HAPPY_POINT = "+10"
 const SKULL_POINT = "-5"
+
+const HAPPY_BAR = -4
+const SKULL_BAR = 10
