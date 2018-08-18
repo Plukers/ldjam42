@@ -16,7 +16,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Happy" type="Sprite" index="0"]
+[node name="Happy" type="Sprite"]
 
 position = Vector2( -30.4727, -48.4941 )
 scale = Vector2( 1.5285, 1.5285 )

@@ -50,6 +50,10 @@ export var initial_force_magnitude = 40.0
 var force_arrow
 var state = State.GOTO_WATER
 
+var running_particle
+var running_particle_material
+var splash_particle_material
+
 var selected = false
 var walk_target = Vector2()
 var initial_force = Vector2()
@@ -62,6 +66,7 @@ func _ready():
 	$Move.connect("tween_completed", self, "_on_tween_ended")
 	$Timer.connect("timeout", self, "_on_time_out")
 	self.connect("body_entered", self, "_on_collision_swimmer")
+	running_particle = $Node2D/RunningParticle
 
 	force_arrow = $ForceArrow
 	force_arrow.visible = false
@@ -189,6 +194,15 @@ func _set_state(new_state):
 			$Move.interpolate_property(self, "position", self.position, walk_target, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			$Move.start()
 			
+			# PARTICLES -------------------
+			running_particle_material = running_particle.process_material
+			var running_direction = (walk_target - self.position).normalized()
+			running_particle_material.gravity = -Vector3(running_direction.x, running_direction.y, 0) * 90
+			running_particle.z_index = $AnimatedSprite.z_index - 1
+			running_particle.process_material = running_particle_material
+			$Node2D/RunningParticle/Tween.interpolate_property(running_particle, "modulate", running_particle.modulate, running_particle.modulate - Color(0, 0, 0, 1), 2.5, Tween.TRANS_LINEAR, Tween.EASE_IN )
+			$Node2D/RunningParticle/Tween.start()
+			
 			state = State.GOTO_WATER
 			
 		State.IN_WATER:
@@ -197,7 +211,7 @@ func _set_state(new_state):
 			self.set_collision_mask_bit(Constants.POOL_BORDER_LAYER, true)
 			self.set_collision_mask_bit(Constants.SWIMMER_LAYER, true)
 			
-			
+			running_particle.emitting = false
 			$Timer.wait_time = randi() % 15 + 2
 			$Timer.start()
 			

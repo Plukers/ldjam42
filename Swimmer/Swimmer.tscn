@@ -1,51 +1,52 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Swimmer/Swimmer.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=17]
 [ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Assets/Swimmer/save_0.wav" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Swimmer/particle/running_particle_sheet_1.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "swim",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "dead",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
 "name": "run",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "help_2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "dead",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "help_1",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "swim",
 "speed": 2.0
 } ]
 
@@ -59,6 +60,54 @@ height = 39.2411
 
 custom_solver_bias = 0.0
 extents = Vector2( 22.1134, 29.6835 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.0
+angular_velocity = -2.97863e-09
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Trail" ]
+
+[sub_resource type="AtlasTexture" id=5]
+
+flags = 0
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 160, 40 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+_sections_unfolded = [ "Resource" ]
 
 [node name="Swimmer" type="RigidBody2D" index="0"]
 
@@ -92,7 +141,7 @@ position = Vector2( 2.83633, -23.8711 )
 scale = Vector2( 1.85669, 1.74025 )
 frames = SubResource( 1 )
 animation = "swim"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -153,6 +202,88 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="Node2D" type="Node2D" parent="." index="7"]
+
+[node name="RunningParticle" type="Particles2D" parent="Node2D" index="0"]
+
+position = Vector2( 1.32037, 20.686 )
+emitting = true
+amount = 16
+lifetime = 4.84
+one_shot = false
+preprocess = 0.98
+speed_scale = 1.75
+explosiveness = 0.05
+randomness = 0.59
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+texture = SubResource( 5 )
+normal_map = null
+h_frames = 4
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
+
+[node name="Tween" type="Tween" parent="Node2D/RunningParticle" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="JumpingParticle" type="Particles2D" parent="Node2D" index="1"]
+
+emitting = false
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = null
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DyingParticle" type="Particles2D" parent="Node2D" index="2"]
+
+emitting = false
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = null
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="body_entered" from="." to="." method="_on_Swimmer_body_entered"]
 
