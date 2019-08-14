@@ -1,159 +1,101 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Swimmer/Swimmer.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Swimmer/help/sprite_MenschUnterGehend3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Swimmer/swim/sprite_Swimmer3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT0.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Swimmer/dead/sprite_MenschTOT3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend0.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Swimmer/run/sprite_MenschGehend3.png" type="Texture" id=17]
 [ext_resource path="res://Swimmer/ForceArrow.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Assets/Swimmer/save_0.wav" type="AudioStream" id=19]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
 
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "swim",
+"name": "help_1",
 "speed": 2.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "dead",
+"name": "swim",
 "speed": 2.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
+"name": "dead",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
 "name": "run",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "help_2",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "help_1",
-"speed": 2.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 16.672
 height = 39.2411
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 22.1134, 29.6835 )
 
-[node name="Swimmer" type="RigidBody2D" index="0"]
-
+[node name="Swimmer" type="RigidBody2D"]
 z_index = 1
-input_pickable = false
 collision_layer = 1024
 collision_mask = 0
 mode = 2
-mass = 1.0
-friction = 1.0
-bounce = 0.5
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index" ]
-speed = 5.0
-initial_force_magnitude = 40.0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.83633, -23.8711 )
 scale = Vector2( 1.85669, 1.74025 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "swim"
-frame = 1
+frame = 3
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.19371, 3.29309 )
 rotation = 1.5708
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2048
 collision_mask = 0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1.20053, -7.75649 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
-[node name="ForceArrow" parent="." index="3" instance=ExtResource( 18 )]
+[node name="ForceArrow" parent="." instance=ExtResource( 18 )]
 
-force_scale = 3.0
+[node name="Move" type="Tween" parent="."]
 
-[node name="Move" type="Tween" parent="." index="4"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
+[node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-autostart = false
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="." index="6"]
-
-stream = ExtResource( 19 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Swimmer_body_entered"]
-
-

@@ -6,77 +6,43 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
-
-bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 270, 270, 0, 0, 0, 0, 1140, 270, 0, 0, 0, 0, 1140, 620, 0, 0, 0, 0, 270, 620, 0, 0, 0, 0, 270, 270 )
 }
 
 [sub_resource type="Curve2D" id=2]
-
-bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -59.6273, -70, 0, 0, 0, 0, 1480.75, -70, 0, 0, 0, 0, 1480.75, 970, 0, 0, 0, 0, -59.6273, 970, 0, 0, 0, 0, -59.6273, -70 )
 }
-_sections_unfolded = [ "Resource" ]
 
 [node name="Game" type="Node2D"]
-
 script = ExtResource( 1 )
 Swimmer = ExtResource( 2 )
 max_spawn_interval = 8
 bound_interval = 3.0
-decrease = 0.95
 
-[node name="Pool" parent="." index="0" instance=ExtResource( 3 )]
-
+[node name="Pool" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -1.29236 )
 
-[node name="Target" type="Path2D" parent="." index="1"]
-
-self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+[node name="Target" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="TargetLocation" type="PathFollow2D" parent="Target" index="0"]
-
+[node name="TargetLocation" type="PathFollow2D" parent="Target"]
 position = Vector2( 270, 270 )
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
 
-[node name="Spawn" type="Path2D" parent="." index="2"]
-
-self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+[node name="Spawn" type="Path2D" parent="."]
 position = Vector2( -10, 0 )
 scale = Vector2( 1.00625, 1 )
 curve = SubResource( 2 )
 
-[node name="SpawnLocation" type="PathFollow2D" parent="Spawn" index="0"]
-
+[node name="SpawnLocation" type="PathFollow2D" parent="Spawn"]
 position = Vector2( -59.6273, -70 )
-offset = 0.0
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
 
-[node name="SpawnTimer" type="Timer" parent="." index="3"]
-
-process_mode = 1
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Swimmers" type="YSort" parent="." index="4"]
+[node name="Swimmers" type="YSort" parent="."]
 
-sort_enabled = true
-
-[node name="HUD" parent="." index="5" instance=ExtResource( 4 )]
-
-
+[node name="HUD" parent="." instance=ExtResource( 4 )]
