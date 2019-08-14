@@ -3,6 +3,7 @@
 .import/
 export.cfg
 export_presets.cfg
+Android_Release/
 
 # Mono-specific ignores
 .mono/
