@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://Progressbar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MuteButton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Silkscreen/slkscr.ttf"
@@ -44,3 +45,9 @@ align = 2
 [node name="Progressbar" parent="." instance=ExtResource( 2 )]
 margin_right = 108.0
 margin_bottom = 77.0
+
+[node name="MuteButton" parent="." instance=ExtResource( 3 )]
+margin_left = 1347.78
+margin_top = 835.695
+margin_right = 1407.78
+margin_bottom = 895.695
