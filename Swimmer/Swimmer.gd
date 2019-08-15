@@ -44,6 +44,8 @@ var help_help_1 = preload("res://Assets/Swimmer/help_help_1.wav")
 var click_down = preload("res://Assets/Swimmer/click_down_0.wav")
 var click_release = preload("res://Assets/Swimmer/click_release_0.wav")
 
+var global_var = 0
+
 export var speed = 5.0
 export var initial_force_magnitude = 40.0
 
@@ -217,11 +219,20 @@ func _set_state(new_state):
 
 func _process(delta):
 	if state == State.IN_WATER and selected:
-		if Input.is_action_pressed("select"):
+#		if Input.is_action_pressed("select"):
+		if global_var == 1 :
 			force_arrow.set_end_pos(get_viewport().get_mouse_position() - self.position)
-		else:
+		elif global_var == 2:
 			force_arrow.visible = false
 			selected = false
 			apply_impulse(Vector2(0, 0),  force_arrow.get_force_vector())
 			_play_sound(Sound.CLICK_RELEASE)
 
+func _input(event):
+	#global_var = false
+	if(event is InputEventScreenTouch or event is InputEventMouseButton):
+		if event.is_pressed():
+			global_var = 1
+		else:
+			global_var = 2
+	
