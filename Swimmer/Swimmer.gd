@@ -85,48 +85,49 @@ func leave_water():
 	
 
 func _play_sound(sound):
-	match sound:
-		Sound.COLLIDE:
-			match randi()%1:
-				0:
-					$Audio.stream = collide_0
-				1:
-					$Audio.stream = collide_1
-		Sound.DIE:
-			match randi()%2:
-				0:
-					$Audio.stream = die_0
-				1:
-					$Audio.stream = die_1
-				2:
-					$Audio.stream = die_2
-		Sound.SAVE:
-			$Audio.stream = save_0
-		Sound.JUMP:
-			match randi()%2:
-				0:
-					$Audio.stream = jump_0
-				1:
-					$Audio.stream = jump_1
-				2:
-					$Audio.stream = jump_2
-		Sound.HELP:
-			match randi()%1:
-				0:
-					$Audio.stream = help_0
-				1:
-					$Audio.stream = help_1
-		Sound.HELP_HELP:
-			match randi()%1:
-				0:
-					$Audio.stream = help_help_0
-				1:
-					$Audio.stream = help_help_1
-		Sound.CLICK_DOWN:
-			$Audio.stream = click_down
-		Sound.CLICK_RELEASE:
-			$Audio.stream = click_release
-	$Audio.play()
+	if(Settings.sound_on):
+		match sound:
+			Sound.COLLIDE:
+				match randi()%1:
+					0:
+						$Audio.stream = collide_0
+					1:
+						$Audio.stream = collide_1
+			Sound.DIE:
+				match randi()%2:
+					0:
+						$Audio.stream = die_0
+					1:
+						$Audio.stream = die_1
+					2:
+						$Audio.stream = die_2
+			Sound.SAVE:
+				$Audio.stream = save_0
+			Sound.JUMP:
+				match randi()%2:
+					0:
+						$Audio.stream = jump_0
+					1:
+						$Audio.stream = jump_1
+					2:
+						$Audio.stream = jump_2
+			Sound.HELP:
+				match randi()%1:
+					0:
+						$Audio.stream = help_0
+					1:
+						$Audio.stream = help_1
+			Sound.HELP_HELP:
+				match randi()%1:
+					0:
+						$Audio.stream = help_help_0
+					1:
+						$Audio.stream = help_help_1
+			Sound.CLICK_DOWN:
+				$Audio.stream = click_down
+			Sound.CLICK_RELEASE:
+				$Audio.stream = click_release
+		$Audio.play()
 
 func _on_input_event(viewport, event, shape_idx):
 	if state == State.IN_WATER and status != Status.HE_DEAD and event is InputEventMouseButton and event.pressed:
