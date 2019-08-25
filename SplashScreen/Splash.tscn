@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://SplashScreen/Splash.gd" type="Script" id=1]
 [ext_resource path="res://SplashScreen/Water.tscn" type="PackedScene" id=2]
@@ -8,12 +8,10 @@
 [ext_resource path="res://Assets/SplashScreen/eightbit.jpg" type="Texture" id=6]
 [ext_resource path="res://Assets/SplashScreen/info1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/SplashScreen/info2.png" type="Texture" id=8]
-[ext_resource path="res://SplashScreen/PlayButton.gd" type="Script" id=9]
-[ext_resource path="res://Assets/SplashScreen/Play_Button/play_button0.png" type="Texture" id=10]
-[ext_resource path="res://Assets/SplashScreen/Play_Button/play_button1.png" type="Texture" id=11]
-[ext_resource path="res://SplashScreen/HowToButton.gd" type="Script" id=12]
-[ext_resource path="res://Assets/SplashScreen/HowTo_Button/how_to_button-1.png.png" type="Texture" id=13]
-[ext_resource path="res://Assets/SplashScreen/HowTo_Button/how_to_button-2.png.png" type="Texture" id=14]
+[ext_resource path="res://PlayButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SplashScreen/HowToButton.gd" type="Script" id=10]
+[ext_resource path="res://Assets/SplashScreen/HowTo_Button/how_to_button-1.png.png" type="Texture" id=11]
+[ext_resource path="res://Assets/SplashScreen/HowTo_Button/how_to_button-2.png.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,20 +21,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 34.4615, 19.6923 )
-
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -114,28 +101,14 @@ margin_bottom = 840.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="PlayButton" type="Node2D" parent="."]
-position = Vector2( 1552, 576 )
-scale = Vector2( 3.25, 3.25 )
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="PlayButton"]
-frames = SubResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="PlayButton"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayButton/Area2D"]
-shape = SubResource( 3 )
+[node name="PlayButton" parent="." instance=ExtResource( 9 )]
 
 [node name="Animate" type="Tween" parent="."]
 
 [node name="HowToButton" type="Node2D" parent="."]
 position = Vector2( 1552, 440 )
 scale = Vector2( 3.25, 3.25 )
-script = ExtResource( 12 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }

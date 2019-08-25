@@ -13,7 +13,7 @@ func _on_play_click(viewport, event, shape_idx):
 		$AnimatedSprite.frame = 1
 	elif event is InputEventMouseButton and !event.pressed:
 		$AnimatedSprite.frame = 0
-		get_tree().change_scene("res://Game.tscn")
+		get_tree().change_scene("res://TutorialScreen/TutorialScreen.tscn")
 
 func _on_mouse_exited():
 	$AnimatedSprite.frame = 0
