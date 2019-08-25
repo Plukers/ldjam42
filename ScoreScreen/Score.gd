@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	$Animate.interpolate_property($PlayButton, "position", $PlayButton.position, Vector2(704, 700), 1.0, Tween.TRANS_SINE, Tween.EASE_OUT)
+	$Animate.interpolate_property($BackButton, "position", $BackButton.position, Vector2(704, 826), 1.0, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$Animate.interpolate_property($Title, "rect_position", $Title.rect_position, Vector2(144, 0), 1.0, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$Animate.interpolate_property($David, "position", $David.position, Vector2(1700, 576), 60.0, Tween.TRANS_SINE, Tween.EASE_OUT)
 

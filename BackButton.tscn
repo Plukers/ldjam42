@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://SplashScreen/PlayButton.gd" type="Script" id=1]
-[ext_resource path="res://Assets/SplashScreen/Play_Button/play_button0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/SplashScreen/Play_Button/play_button1.png" type="Texture" id=3]
+[ext_resource path="res://BackButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SplashScreen/Back_Button/back_button1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SplashScreen/Back_Button/back_button2.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,10 +13,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33.2308, 20.3077 )
+extents = Vector2( 33.2308, 18.4615 )
 
-[node name="PlayButton" type="Node2D"]
-position = Vector2( 1552, 576 )
+[node name="BackButton" type="Node2D"]
+position = Vector2( 1552, 720 )
 scale = Vector2( 3.25, 3.25 )
 script = ExtResource( 1 )
 __meta__ = {

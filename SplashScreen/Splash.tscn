@@ -21,7 +21,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
@@ -29,8 +29,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 34.3994, 18.9641 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 33.2308, 18.4615 )
 
 [node name="Splash" type="Node2D"]
 script = ExtResource( 1 )
@@ -65,6 +65,7 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Info" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, 32 )
 __meta__ = {
 "_edit_group_": true
@@ -106,6 +107,7 @@ expand = true
 [node name="Animate" type="Tween" parent="."]
 
 [node name="HowToButton" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1552, 440 )
 scale = Vector2( 3.25, 3.25 )
 script = ExtResource( 10 )
@@ -114,9 +116,9 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="HowToButton"]
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="HowToButton"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HowToButton/Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
