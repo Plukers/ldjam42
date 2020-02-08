@@ -53,7 +53,6 @@ position = Vector2( 528, 288 )
 position = Vector2( -368, 576 )
 scale = Vector2( 10.2286, 10.2286 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Title" type="TextureRect" parent="."]
